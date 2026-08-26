@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gannatallah & Adham</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <audio id="weddingMusic" loop>
+        <source src="music/helm-omry.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="app">
+    <main class="app">
+
+        <!-- ================= HOME ================= -->
+
+        <section class="screen hero active" id="home">
+
+            <div class="curtain curtain-left"></div>
+            <div class="curtain curtain-right"></div>
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    YOU ARE CORDIALLY<br>
+                    INVITED TO CELEBRATE
+                </p>
+
+                <h1>
+                    Adham
+                    <br>
+                    <span>&</span>
+                    <br>
+                    Gannatallah
+                </h1>
+
+                <p class="date-line">
+                    26 SEPTEMBER 2026
+                </p>
+
+                <p class="venue-line">
+                    DAR AL-MOSHAH & STAR GARDEN HALL
+                </p>
+
+                <button class="enter-btn" onclick="openInvitation()">
+                    Open Invitation
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REVEAL ================= -->
+
+        <section class="screen reveal-screen" id="reveal">
+
+            <button class="top-btn" onclick="goTo('home')">
+                ←
+            </button>
+
+            <button class="sound-btn" onclick="toggleSound()">
+              ♫
+             </button>
+
+             <audio id="weddingMusic" loop>
+             <source src="helm-omry.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="section-title">
+
+                <p>REVEAL</p>
+
+                <h2>
+                    Scratch to discover
+                    <br>
+                    the date
+                </h2>
+
+            </div>
+
+
+            <div class="scratch-wrap">
+
+                <div class="scratch-card">
+
+                    <div class="scratch-answer">
+
+                        <span>26</span>
+
+                        <small>SEPTEMBER</small>
+
+                        <span>2026</span>
+
+                    </div>
+
+                    <canvas id="scratchCanvas"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <p class="scratch-hint">
+                Rub the card to reveal our special day ✦
+            </p>
+
+
+            <h2 class="married-message" id="marriedMessage">
+                We're getting married!
+            </h2>
+
+
+            <button class="next-btn" onclick="goTo('note')">
+                Continue ↓
+            </button>
+
+        </section>
+
+
+        <!-- ================= NOTE ================= -->
+
+        <section class="screen note-screen" id="note">
+
+            <div class="confetti"></div>
+
+            <p class="eyebrow">
+                A NOTE FROM US
+            </p>
+
+            <h2>
+                Celebrate with
+                <br>
+                us
+            </h2>
+
+            <p class="note-text">
+
+                Together with our families, we invite you
+                to share this beautiful beginning with us.
+
+                Your presence would make our celebration
+                of love, joy, and happiness even more special.
+
+            </p>
+
+
+            <p class="signature">
+
+                With love,
+                <br>
+
+                <strong>
+                    Gannatallah & Adham
+                </strong>
+
+            </p>
+
+
+            <button class="next-btn dark" onclick="goTo('details')">
+                The details ↓
+            </button>
+
+        </section>
+
+
+        <!-- ================= DETAILS ================= -->
+
+        <section class="screen details-screen" id="details">
+
+            <button class="sound-btn light" onclick="toggleSound()">
+                ◉
+            </button>
+
+            <div class="details-inner">
+
+                <p class="eyebrow">
+                    EVERYTHING YOU NEED TO KNOW
+                </p>
+
+                <h2>
+                    The details
+                </h2>
+
+
+                <div class="detail-card">
+
+                    <span class="icon">
+                        ⌖
+                    </span>
+
+                    <h3>
+                        Dar Al-moshah &
+                        <br>
+                        Star Garden Hall
+                    </h3>
+
+                    <p>
+                        26 September 2026
+                    </p>
+
+                    <a
+                   class="location-btn"
+                   href="https://maps.app.goo.gl/LYR4hUn7AWSfNY2E6?g_st=ic"
+                   target="_blank"
+>
+                    VIEW LOCATION
+                    </a>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <span class="icon">
+                        ♡
+                    </span>
+
+                    <h3>
+                        Dress code
+                    </h3>
+
+                    <p>
+                        Whatever you want to dress
+                        <br>
+                        except white.
+                    </p>
+
+                </div>
+
+
+                <button class="next-btn" onclick="goTo('final')">
+                    One last thing ↓
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINAL ================= -->
+
+        <section class="screen final-screen" id="final">
+
+            <div class="final-content">
+
+                <p class="eyebrow">
+                    WE CAN'T WAIT TO SEE YOU
+                </p>
+
+                <h2>
+
+                    Gannatallah
+
+                    <br>
+
+                    <span>&</span>
+
+                    <br>
+
+                    Adham
+
+                </h2>
+
+                <p class="final-date">
+                    26 SEPTEMBER 2026
+                </p>
+
+                <p class="thanks">
+                    Thank you for being part of our story.
+                </p>
+
+            </div>
+
+
+            <button class="restart-btn" onclick="goTo('home')">
+                ↻
+            </button>
+
+        </section>
+
+
+        <div class="toast" id="toast"></div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

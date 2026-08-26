@@ -1,0 +1,1086 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    --burgundy: #5d1e1d;
+
+    --deep: #451414;
+
+    --cream: #f8f1e9;
+
+    --paper: #fffaf4;
+
+    --gold: #c99a55;
+
+    --text: #512524;
+
+}
+
+
+html,
+body {
+
+    min-height: 100%;
+
+    background: #181010;
+
+}
+
+
+body {
+
+    font-family: "Montserrat", sans-serif;
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+}
+
+
+button {
+
+    font: inherit;
+
+    cursor: pointer;
+
+}
+
+
+/* ================= APP ================= */
+
+.app {
+
+    width: min(100%, 430px);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    background: var(--cream);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* ================= SCREEN ================= */
+
+.screen {
+
+    display: none;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation: fadeIn .7s ease both;
+
+}
+
+
+.screen.active {
+
+    display: flex;
+
+}
+
+
+/* ================= HOME ================= */
+
+.hero {
+
+    background: var(--paper);
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 30px;
+
+    animation: rise 1.2s ease both;
+
+}
+
+
+.eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    line-height: 1.7;
+
+    color: #815b57;
+
+}
+
+
+.hero h1 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 62px;
+
+    line-height: .78;
+
+    font-weight: 500;
+
+    margin: 35px 0;
+
+    color: var(--burgundy);
+
+}
+
+
+.hero h1 span {
+
+    font-size: 35px;
+
+    font-style: italic;
+
+}
+
+
+.date-line {
+
+    font-size: 12px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 600;
+
+}
+
+
+.venue-line {
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    margin-top: 12px;
+
+    color: #876563;
+
+}
+
+
+.enter-btn {
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    border: 1px solid var(--burgundy);
+
+    background: transparent;
+
+    color: var(--burgundy);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 9px;
+
+    transition: .3s;
+
+}
+
+
+.enter-btn:hover {
+
+    background: var(--burgundy);
+
+    color: white;
+
+}
+
+
+/* ================= CURTAINS ================= */
+
+.curtain {
+
+    position: absolute;
+
+    z-index: 4;
+
+    top: 0;
+
+    width: 24%;
+
+    height: 100%;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.08) 0 2px,
+            transparent 2px 13px
+        ),
+
+        linear-gradient(
+            90deg,
+            #3d0b0c,
+            #761d1d 45%,
+            #470e0f
+        );
+
+    transition:
+        transform 1.7s
+        cubic-bezier(.76,0,.24,1);
+
+}
+
+
+.curtain-left {
+
+    left: 0;
+
+    border-radius:
+        0 55% 45% 0 /
+        0 12% 10% 0;
+
+    transform-origin: left;
+
+}
+
+
+.curtain-right {
+
+    right: 0;
+
+    border-radius:
+        55% 0 0 45% /
+        12% 0 0 10%;
+
+    transform-origin: right;
+
+}
+
+
+.hero.opened .curtain-left {
+
+    transform: translateX(-105%);
+
+}
+
+
+.hero.opened .curtain-right {
+
+    transform: translateX(105%);
+
+}
+
+
+/* ================= BUTTONS ================= */
+
+.top-btn,
+.sound-btn {
+
+    position: absolute;
+
+    top: 22px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(93,30,29,.25);
+
+    background:
+        rgba(255,255,255,.65);
+
+    color: var(--burgundy);
+
+    z-index: 10;
+
+}
+
+
+.top-btn {
+
+    left: 20px;
+
+}
+
+
+.sound-btn {
+
+    right: 20px;
+
+}
+
+
+/* ================= REVEAL ================= */
+
+.reveal-screen {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(93,30,29,.07),
+            transparent 35%
+        ),
+
+        var(--paper);
+
+    padding:
+        85px 25px 35px;
+
+}
+
+
+.section-title p {
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: var(--burgundy);
+
+}
+
+
+.section-title h2,
+.note-screen h2,
+.details-screen h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 43px;
+
+    line-height: .92;
+
+    font-weight: 500;
+
+    margin-top: 10px;
+
+}
+
+
+/* ================= SCRATCH CARD ================= */
+
+.scratch-wrap {
+
+    width: 280px;
+
+    height: 205px;
+
+    margin-top: 42px;
+
+    padding: 12px;
+
+}
+
+
+.scratch-card {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    border:
+        1px solid
+        rgba(93,30,29,.2);
+
+    background: #fff;
+
+    overflow: hidden;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(65,20,20,.08);
+
+}
+
+
+.scratch-answer {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-direction: column;
+
+    color: var(--burgundy);
+
+}
+
+
+.scratch-answer span:first-child {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 58px;
+
+    line-height: .7;
+
+}
+
+
+.scratch-answer span:last-child {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.scratch-answer small {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+#scratchCanvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    touch-action: none;
+
+}
+
+
+.scratch-hint {
+
+    margin-top: 15px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: #8b6c68;
+
+}
+
+
+.married-message {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    margin-top: 18px;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: .6s;
+
+}
+
+
+.married-message.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* ================= NEXT BUTTON ================= */
+
+.next-btn {
+
+    margin-top: auto;
+
+    padding: 12px 25px;
+
+    border: 0;
+
+    background: var(--burgundy);
+
+    color: white;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 9px;
+
+}
+
+
+/* ================= NOTE ================= */
+
+.note-screen {
+
+    background: var(--paper);
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        90px 35px 35px;
+
+}
+
+
+.note-screen h2 {
+
+    margin-top: 12px;
+
+    font-size: 49px;
+
+}
+
+
+.note-text {
+
+    margin-top: 38px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    max-width: 310px;
+
+}
+
+
+.signature {
+
+    margin-top: 35px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+
+}
+
+
+.signature strong {
+
+    color: var(--burgundy);
+
+}
+
+
+.dark {
+
+    margin-top: auto;
+
+}
+
+
+/* ================= DETAILS ================= */
+
+.details-screen {
+
+    background: var(--burgundy);
+
+    color: #fff4e8;
+
+    padding:
+        80px 24px 30px;
+
+}
+
+
+.details-screen .eyebrow {
+
+    color: #dfb9a8;
+
+}
+
+
+.details-screen h2 {
+
+    color: #fff4e8;
+
+    font-size: 52px;
+
+}
+
+
+.details-inner {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+.detail-card {
+
+    margin-top: 28px;
+
+    padding: 25px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.detail-card .icon {
+
+    display: block;
+
+    font-size: 24px;
+
+    color: #e5c48c;
+
+    margin-bottom: 10px;
+
+}
+
+
+.detail-card h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+}
+
+
+.detail-card p {
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    letter-spacing: 1px;
+
+    margin-top: 10px;
+
+    color: #e5cfc4;
+
+}
+
+
+.detail-card button {
+
+    margin-top: 15px;
+
+    padding: 9px 15px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,.4);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* ================= FINAL SCREEN ================= */
+
+.final-screen {
+
+    background: var(--paper);
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    min-height: 100vh;
+
+    position: relative;
+
+}
+
+
+/* Left curtain */
+
+.final-screen::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 18%;
+
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.07) 0 2px,
+            transparent 2px 13px
+        ),
+        linear-gradient(
+            90deg,
+            #3d0b0c,
+            #761d1d 45%,
+            #470e0f
+        );
+
+    border-radius:
+        0 50% 50% 0;
+
+}
+
+
+/* Right curtain */
+
+.final-screen::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 18%;
+
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.07) 0 2px,
+            transparent 2px 13px
+        ),
+        linear-gradient(
+            90deg,
+            #3d0b0c,
+            #761d1d 45%,
+            #470e0f
+        );
+
+    border-radius:
+        50% 0 0 50%;
+
+}
+
+
+/* Content */
+
+.final-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 80%;
+
+    padding: 30px 10px;
+
+}
+
+
+.final-content .eyebrow {
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+}
+
+
+.final-content h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color: var(--burgundy);
+
+    font-size: 52px;
+
+    line-height: .82;
+
+    font-weight: 500;
+
+    margin: 35px 0;
+
+}
+
+
+.final-content h2 span {
+
+    font-size: 32px;
+
+    font-style: italic;
+
+}
+
+
+.final-date {
+
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 600;
+
+}
+
+
+.thanks {
+
+    margin-top: 20px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+}
+
+
+.restart-btn {
+
+    position: absolute;
+
+    z-index: 10;
+
+    bottom: 25px;
+
+    right: 20px;
+
+    border:
+        1px solid
+        rgba(93,30,29,.3);
+
+    background: white;
+
+    color: var(--burgundy);
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+}
+
+
+/* ================= TOAST ================= */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translate(-50%, 100px);
+
+    background: #241010;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    font-size: 10px;
+
+    border-radius: 3px;
+
+    opacity: 0;
+
+    transition: .4s;
+
+    z-index: 100;
+
+    max-width: 330px;
+
+    text-align: center;
+
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+
+}
+
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes rise {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 700px) {
+
+    body {
+
+        padding: 20px;
+
+    }
+
+    .app {
+
+        border-radius: 20px;
+
+        min-height:
+            calc(100vh - 40px);
+
+        box-shadow:
+            0 20px 80px
+            rgba(0,0,0,.3);
+
+    }
+
+    .screen {
+
+        min-height:
+            calc(100vh - 40px);
+
+    }
+    
+}
+.location-btn {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 9px 15px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+}
